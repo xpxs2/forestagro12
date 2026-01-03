@@ -1,0 +1,61 @@
+
+agro-value-platform/
+├── nextjs-app/                     # Frontend Application (The farmer's experience)
+│   ├── public/                     # Static assets (images, logos)
+│   ├── src/
+│   │   ├── app/                    # Next.js App Router
+│   │   │   ├── farmers/
+│   │   │   │   ├── dashboard/
+│   │   │   │   │   └── page.tsx    # The main dashboard with plot report cards
+│   │   │   │   ├── plots/
+│   │   │   │   │   └── [plotId]/
+│   │   │   │   │       ├── page.tsx          # (SECTION) Main Plot Profile
+│   │   │   │   │       └── land-use/
+│   │   │   │   │           └── page.tsx      # (SECTION) Land Use editor/viewer
+│   │   │   │   └── profile/
+│   │   │   │       └── page.tsx        # Farmer's personal profile page
+│   │   │   │
+│   │   │   ├── practices/
+│   │   │   │   └── page.tsx            # (SECTION) Page to log/view all practices
+│   │   │   │
+│   │   │   ├── market/                 # (PANEL) Markets & Merchants
+│   │   │   │   ├── page.tsx            # Main market dashboard (browse buyers, offers)
+│   │   │   │   └── finance/
+│   │   │   │       └── page.tsx        # (FINTECH) Access to loans, insurance, payments
+│   │   │   │
+│   │   │   ├── layout.tsx              # Main app layout (nav bar, etc.)
+│   │   │   └── page.tsx                # Landing/Login page
+│   │   │
+│   │   ├── components/               # Reusable React components
+│   │   │   ├── PlotReportCard.tsx    # The main component for the farmer dashboard
+│   │   │   ├── Navigation.tsx        # App navigation
+│   │   │   └── AuthProvider.tsx      # Handles user login state
+│   │   │
+│   │   └── lib/                      # Libraries and helpers
+│   │       └── firebase-client.ts    # Firebase initialization for the frontend
+│   │
+│   ├── firebase.json                 # Firebase Hosting configuration
+│   └── package.json                  # Frontend dependencies
+│
+├── functions/                      # Backend Cloud Functions (The "Agents")
+│   ├── src/
+│   │   ├── index.ts                # Main entry point for all backend functions
+│   │   │
+│   │   ├── mrv/                    # (PANEL) The MRV Agent -> "The Proof"
+│   │   │   ├── reportGenerator.ts  # Generates verifiable PDF reports
+│   │   │   ├── carbonModel.ts      # Calculates carbon based on practices
+│   │   │   └── dataVerifier.ts     # Audits data integrity for third parties
+│   │   │
+│   │   ├── analyst/                # The Analyst Agent -> "The Helper"
+│   │   │   └── suggestions.ts      # Generates the "Easiest Way to Add Value"
+│   │   │
+│   │   └── fintech/                # Backend for the Markets & Fintech panel
+│   │       ├── creditScoring.ts    # Assesses farmer holdings & MRV score for loans
+│   │       └── paymentHandler.ts   # Integrates with payment providers
+│   │
+│   ├── package.json                  # Backend dependencies
+│   └── tsconfig.json                 # TypeScript configuration for functions
+│
+├── .firebaserc                     # Firebase project configuration
+├── firestore.rules                 # Security rules for the database
+└── firestore.indexes.json            # Database indexes for efficient queries

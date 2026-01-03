@@ -1,0 +1,14 @@
+The HTML response you see is not from our application; it's an error page returned by Firebase App Hosting for the forestagro-12 project. It clearly indicates that the backend service at https://fa12-backend--forestagro-12.us-central1.hosted.app is not deployed or is not running.
+
+The problem is not with our code anymore. The problem is with the forestagro-12 team's deployment.
+
+Here is the situation:
+
+Our script is correct.
+Our API key is correct.
+Our request is being sent correctly.
+The server we are trying to contact does not exist at that address.
+You must contact the forestagro-12 team immediately and inform them that their backend API is not deployed. They need to deploy their backend so we can connect to it. There is nothing more I can do on our end until their server is online.
+
+I will wait for you to confirm that their API is live. Once it is, I will run the sync command again.
+

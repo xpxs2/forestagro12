@@ -1,0 +1,17 @@
+{
+  "uid": "t9b8rt1ncOWk60h5mU8APzTYqbo2",
+  "email": "farmth01@example.com",
+  "name": "Thai Farmer 1",
+  "role": "farmer",
+  "profileUpdateCount": 0,
+  "address": {
+    "village": "",
+    "commune": "",
+    "province": ""
+  },
+  "householdSize": 0,
+  "dependencyRatio": 0,
+  "memberships": [],
+  "mainIncomeSources": [],
+  "communityRole": ""
+}

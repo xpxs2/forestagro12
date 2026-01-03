@@ -1,0 +1,25 @@
+the following minimum metrics and location data are strongly recommended. These support registration, reporting, auditing, and ecological analysis.
+Core Land Plot Location Data
+
+    Country
+
+    Province
+
+    District
+
+    Nearest landmark (e.g., government agency, school, hospital, community center)
+
+
+Road name or access description
+
+GIS coordinates (polygon: min 4 corner points; lat-long format; recommended precision of 4–6 decimals for reliable polygon area)
+
+Area in hectares (e.g., 1.5 Ha per plot, 1 decimal place for reporting accuracy)
+
+Unique plot ID or code number for system tracking and validation
+
+Name of assigned farmer or household, linked to registration profile
+
+web-app developer architecture & code weaver require to plan: how mant times will a farmer's plot require updating or require changing?
+answer: edit change to have better precise plot description or location, maybe at most a few times, after that, the farmer farms for life, his children and children's children will hardly change the plots.
+this is ASEAN culture.

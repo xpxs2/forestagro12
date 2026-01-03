@@ -1,0 +1,22 @@
+the pre-planned and pre-assigned farmers, rangers and staff  from 4 countries are: 
+
+
+  // Thailand
+  { id: 'THFAM001', name: 'Thai Farmer 1', pin: '111111', role: 'farmer', country: 'TH' },
+  { id: 'THRANG001', name: 'Thai Ranger 1', pin: '222222', role: 'ranger', country: 'TH' },
+  { id: 'THSTF001', name: 'Thai Staff 1', pin: '333333', role: 'staff', country: 'TH' },
+
+  // Lao PDR
+  { id: 'LAFAM001', name: 'Lao Farmer 1', pin: '444444', role: 'farmer', country: 'LA' },
+  { id: 'LARANG001', name: 'Lao Ranger 1', pin: '555555', role: 'ranger', country: 'LA' },
+  { id: 'LASTF001', name: 'Lao Staff 1', pin: '666666', role: 'staff', country: 'LA' },
+
+  // Indonesia
+  { id: 'IDFAM001', name: 'Indonesian Farmer 1', pin: '777777', role: 'farmer', country: 'ID' },
+  { id: 'IDRANG001', name: 'Indonesian Ranger 1', pin: '888888', role: 'ranger', country: 'ID' },
+  { id: 'IDSTF001', name: 'Indonesian Staff 1', pin: '999999', role: 'staff', country: 'ID' },
+
+  // Singapore
+  { id: 'SGFAM001', name: 'Singaporean Farmer 1', pin: '121212', role: 'farmer', country: 'SG' },
+  { id: 'SGRANG001', name: 'Singaporean Ranger 1', pin: '343434', role: 'ranger', country: 'SG' },
+  { id: 'SGSTF001', name: 'Singaporean Staff 1', pin: '565656', role: 'staff', country: 'SG' },

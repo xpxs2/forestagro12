@@ -1,0 +1,73 @@
+
+# Practices vs. MRV: A Clear Separation of Work
+
+**Purpose:** To define the clear and absolute separation between the farmer's work (Practices & Management) and the system's work (MRV - The Proof). This document supersedes all previous discussions that conflated the two.
+
+---
+
+### **Part 1: The Farmer's Domain: Practices & Management**
+
+**This is what YOU do. This is your work, your knowledge, your land.**
+
+Your responsibility is to manage your farm and to log those actions as simply as possible. The system should work for you, not the other way around.
+
+Your work falls into clear categories:
+
+1.  **Soil Management:**
+    *   Logging the use of compost or manure.
+    *   Planting cover crops (e.g., legumes).
+    *   Practicing low-tillage techniques.
+
+2.  **Water Management:**
+    *   Maintaining or building irrigation channels.
+    *   Harvesting rainwater.
+    *   Installing drip irrigation systems.
+
+3.  **Crop, Tree & Asset Management:**
+    *   Planting new trees (timber, fruit, medicinal).
+    *   Intercropping different species.
+    *   Pruning, thinning, or harvesting existing assets.
+
+4.  **Input Management:**
+    *   Recording the type and amount of any fertilizer used (organic or chemical).
+    *   Recording the use of any pesticides.
+
+**The Goal of Your Work:** To manage a productive and sustainable farm. The platform's job is to make logging these activities as fast and painless as possible, like a digital logbook for your own records.
+
+--- 
+
+### **Part 2: The System's Domain: MRV (The Proof)**
+
+**This is what WE do. This is our job, our responsibility.**
+
+Our responsibility is to take the simple data you provide and turn it into powerful, verifiable proof of impact. This is the exclusive job of a dedicated **"MRV Agent."** You should not have to think about this part.
+
+1.  **M = Measurement (Calculation):**
+    *   The MRV Agent takes your input (e.g., "planted 100 Grevillea trees") and combines it with scientific models.
+    *   It **calculates** the estimated carbon sequestration, the improvement in soil organic matter, or the change in water efficiency. You don't do the complex math.
+
+2.  **R = Reporting (Packaging):**
+    *   The MRV Agent takes these calculated impacts and packages them into professional, standardized reports.
+    *   These reports are designed to be understood and trusted by banks, carbon credit buyers, and certification bodies.
+
+3.  **V = Verification (Auditing):**
+    *   The MRV Agent structures all the data and calculations in a way that is transparent and auditable.
+    *   It ensures that when a third-party verifier wants to check the work, they have a clear, credible data trail to follow, starting from your original logged practice.
+
+**The Goal of Our Work:** To convert your good work into a high-value, bankable asset with zero extra effort from you.
+
+---
+
+### **The Bridge: The Analyst Agent**
+
+The only place where these two worlds meet is through the **Analyst Agent**, whose job is to be your personal advisor.
+
+*   The Analyst Agent looks at **YOUR practices**.
+*   It gives you simple, helpful advice to improve your farm's productivity and sustainability.
+*   Crucially, it will also give you tips on the *easiest* way to improve your data quality to make the **MRV Agent's** job more effective, thereby increasing the value of your proof.
+
+**Example:**
+*   **You log:** "Used compost on Plot A."
+*   **The Analyst Agent advises:** "Great work on soil health. **Opportunity:** If you also log the *amount* of compost used, your MRV Readiness score for soil carbon will increase by 10%."
+
+This maintains the separation. You focus on your work. We focus on proving its value. The Analyst Agent is simply a helpful guide that connects the two worlds without forcing you to live in both.

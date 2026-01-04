@@ -1,5 +1,6 @@
+
 import { NextResponse } from 'next/server';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { firestore } from 'firebase-admin';
 import { db } from '@/lib/firebase-admin';
 import { authenticateServiceAccount } from '@/lib/service-account-auth';
 
@@ -28,7 +29,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
         }
 
         // Reference to the 'reports' sub-collection
-        const reportsCollectionRef = collection(db, 'users', userId, 'reports');
+        const reportsCollectionRef = db.collection('users').doc(userId).collection('reports');
 
         // Prepare the new report document
         const newReportDoc = {
@@ -36,12 +37,12 @@ export async function POST(request: Request, { params }: { params: { id: string 
             title,
             summary,
             data, // The rich data object containing all report details
-            generatedAt: serverTimestamp(),
+            generatedAt: firestore.FieldValue.serverTimestamp(),
             source: 'agro-vista20',
         };
 
         // Add the new document
-        const docRef = await addDoc(reportsCollectionRef, newReportDoc);
+        const docRef = await reportsCollectionRef.add(newReportDoc);
 
         return NextResponse.json({ message: 'Report added successfully', reportId: docRef.id }, { status: 201 });
 

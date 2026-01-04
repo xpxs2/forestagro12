@@ -36,16 +36,21 @@ export default function ProfilePage() {
         const { name, value } = e.target;
         setFarmer(prevFarmer => {
             if (!prevFarmer) return null;
+
             const newFarmer = { ...prevFarmer };
 
             if (name.startsWith('address.')) {
-                const field = name.split('.')[1];
-                if (!newFarmer.address) {
-                    newFarmer.address = {};
-                }
-                (newFarmer.address as any)[field] = value;
+                const field = name.split('.')[1] as keyof User['address'];
+                
+                const newAddress: User['address'] = {
+                    ...(prevFarmer.address || { village: '', commune: '', district: '', province: '', country: '' }),
+                    [field]: value
+                };
+                
+                newFarmer.address = newAddress;
+
             } else if (name === 'memberships' || name === 'mainIncomeSources') {
-                newFarmer[name] = value.split(',').map(s => s.trim());
+                (newFarmer as any)[name] = value.split(',').map(s => s.trim());
             } else {
                 (newFarmer as any)[name] = value;
             }

@@ -1,5 +1,6 @@
+
 import { NextResponse } from 'next/server';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { firestore } from 'firebase-admin';
 import { db } from '@/lib/firebase-admin';
 import { authenticateServiceAccount } from '@/lib/service-account-auth';
 
@@ -26,19 +27,19 @@ export async function POST(request: Request, { params }: { params: { id: string 
         }
 
         // Reference to the 'kyc_checks' sub-collection for the specified user
-        const kycCollectionRef = collection(db, 'users', userId, 'kyc_checks');
+        const kycCollectionRef = db.collection('users').doc(userId).collection('kyc_checks');
 
         // Prepare the new KYC document
         const newKycDoc = {
             staff_id, // The ID of the staff member from agro-vista20 performing the check
             status,   // e.g., 'verified', 'pending', 'rejected'
             notes: notes || '',
-            createdAt: serverTimestamp(), // Use server-side timestamp for reliability
+            createdAt: firestore.FieldValue.serverTimestamp(), // Use server-side timestamp for reliability
             source: 'agro-vista20', // Tag the data source for clarity
         };
 
         // Add the new document to the sub-collection
-        const docRef = await addDoc(kycCollectionRef, newKycDoc);
+        const docRef = await kycCollectionRef.add(newKycDoc);
 
         // Return a success response
         return NextResponse.json({ message: 'KYC check added successfully', kycId: docRef.id }, { status: 201 });

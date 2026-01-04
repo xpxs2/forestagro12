@@ -1,5 +1,5 @@
+
 import { NextResponse } from 'next/server';
-import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '@/lib/firebase-admin';
 import { authenticateServiceAccount } from '@/lib/service-account-auth';
 
@@ -23,11 +23,11 @@ export async function GET(request: Request) {
     }
 
     try {
-        // Query the 'users' collection
-        const usersRef = collection(db, 'users');
-        const q = query(usersRef, where('country', '==', country));
+        // Query the 'users' collection using the Admin SDK
+        const usersRef = db.collection('users');
+        const q = usersRef.where('country', '==', country);
 
-        const querySnapshot = await getDocs(q);
+        const querySnapshot = await q.get();
         
         const users = querySnapshot.docs.map(doc => ({
             id: doc.id,

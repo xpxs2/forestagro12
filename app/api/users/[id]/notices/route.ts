@@ -1,5 +1,6 @@
+
 import { NextResponse } from 'next/server';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { firestore } from 'firebase-admin';
 import { db } from '@/lib/firebase-admin';
 import { authenticateServiceAccount } from '@/lib/service-account-auth';
 
@@ -28,7 +29,7 @@ export async function POST(request: Request, { params }: { params: { id: string 
         }
 
         // Reference to the 'notices' sub-collection
-        const noticesCollectionRef = collection(db, 'users', userId, 'notices');
+        const noticesCollectionRef = db.collection('users').doc(userId).collection('notices');
 
         // Prepare the new notice document
         const newNoticeDoc = {
@@ -37,12 +38,12 @@ export async function POST(request: Request, { params }: { params: { id: string 
             body: noticeBody,
             link: link || '', // Optional link to a KB article
             status: 'delivered', // Initial status
-            createdAt: serverTimestamp(),
+            createdAt: firestore.FieldValue.serverTimestamp(),
             source: 'agro-vista20',
         };
 
         // Add the new document
-        const docRef = await addDoc(noticesCollectionRef, newNoticeDoc);
+        const docRef = await noticesCollectionRef.add(newNoticeDoc);
 
         return NextResponse.json({ message: 'Notice added successfully', noticeId: docRef.id }, { status: 201 });
 

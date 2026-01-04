@@ -1,7 +1,6 @@
 
 import { NextResponse } from 'next/server';
-import { getFirestore } from 'firebase-admin/firestore';
-import { initAdmin } from '@/lib/firebase-admin';
+import { db } from '@/lib/firebase-admin';
 import { Ranger } from '@/lib/staff-types'; // <-- Import the new interface
 
 export async function GET(request: Request) {
@@ -13,9 +12,6 @@ export async function GET(request: Request) {
   }
 
   try {
-    const adminApp = await initAdmin();
-    const db = getFirestore(adminApp);
-
     const usersRef = db.collection('users');
     const snapshot = await usersRef.where('role', '==', 'ranger').get();
 

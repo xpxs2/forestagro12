@@ -4,12 +4,6 @@
   },
   "hosting": {
     "public": "public",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ],
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -25,6 +19,7 @@
       "firebase-debug.log",
       "firebase-debug.*.log",
       "functions"
-    ]
+    ],
+    "alwaysDeployFromSource": true
   }
 }

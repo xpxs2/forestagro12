@@ -1,0 +1,319 @@
+starting build "376e9941-8d07-4f12-b355-b2daed6cc93e"
+FETCHSOURCE
+From https://github.com/xpxs2/forestagro12
+ * branch            359aa34d35e42b0fa7b5d5bff7da08fd4783e9fa -> FETCH_HEAD
+HEAD is now at 359aa34 Fix: Correct firebase.json to remove conflicting rewrite rule
+GitCommit:
+359aa34d35e42b0fa7b5d5bff7da08fd4783e9fa
+BUILD
+Starting Step #0 - "ubuntu"
+Already have image (with digest): gcr.io/cloud-builders/gcloud
+Finished Step #0 - "ubuntu"
+Starting Step #1 - "preparer"
+Pulling image: us-central1-docker.pkg.dev/serverless-runtimes/utilities/preparer:base_20251106_18_04_RC00
+base_20251106_18_04_RC00: Pulling from serverless-runtimes/utilities/preparer
+dd6d5c0a670c: Pulling fs layer
+dd6d5c0a670c: Verifying Checksum
+dd6d5c0a670c: Download complete
+dd6d5c0a670c: Pull complete
+Digest: sha256:e198e53dec3cb4eb5feded080c2d4a85d6775fd2f9f0e57a8e864ef8e35ac1b1
+Status: Downloaded newer image for us-central1-docker.pkg.dev/serverless-runtimes/utilities/preparer:base_20251106_18_04_RC00
+us-central1-docker.pkg.dev/serverless-runtimes/utilities/preparer:base_20251106_18_04_RC00
+2026/01/05 12:58:21 FIREBASE_CONFIG has no availability specified, applying the default of 'BUILD' and 'RUNTIME'
+2026/01/05 12:58:22 Final app hosting schema:
+runConfig:
+  cpu: null
+  memoryMiB: null
+  concurrency: null
+  maxInstances: null
+  minInstances: 0
+  vpcAccess: null
+  cpuAlwaysAllocated: null
+env:
+- variable: FIREBASE_CONFIG
+  value: '{"databaseURL":"","projectId":"forestagro-12","storageBucket":"forestagro-12.firebasestorage.app"}'
+  availability:
+  - BUILD
+  - RUNTIME
+  source: Firebase System
+- variable: FIREBASE_WEBAPP_CONFIG
+  value: '{"apiKey":"AIzaSyAApeRQ-AduwuIz3B2By60tWnG6rA_pa8E","appId":"1:208577304518:web:ffcaffdb4ef909da0f04c7","authDomain":"forestagro-12.firebaseapp.com","databaseURL":"","messagingSenderId":"208577304518","projectId":"forestagro-12","storageBucket":"forestagro-12.firebasestorage.app"}'
+  availability:
+  - BUILD
+  source: Firebase System
+2026/01/05 12:58:22 Final app hosting schema:
+runConfig:
+  cpu: null
+  memoryMiB: null
+  concurrency: null
+  maxInstances: null
+  minInstances: 0
+  vpcAccess: null
+  cpuAlwaysAllocated: null
+env:
+- variable: FIREBASE_CONFIG
+  value: '{"databaseURL":"","projectId":"forestagro-12","storageBucket":"forestagro-12.firebasestorage.app"}'
+  availability:
+  - BUILD
+  - RUNTIME
+  source: Firebase System
+- variable: FIREBASE_WEBAPP_CONFIG
+  value: '{"apiKey":"AIzaSyAApeRQ-AduwuIz3B2By60tWnG6rA_pa8E","appId":"1:208577304518:web:ffcaffdb4ef909da0f04c7","authDomain":"forestagro-12.firebaseapp.com","databaseURL":"","messagingSenderId":"208577304518","projectId":"forestagro-12","storageBucket":"forestagro-12.firebasestorage.app"}'
+  availability:
+  - BUILD
+  source: Firebase System
+Finished Step #1 - "preparer"
+Starting Step #2 - "pack"
+Pulling image: gcr.io/k8s-skaffold/pack
+Using default tag: latest
+latest: Pulling from k8s-skaffold/pack
+396c31837116: Pulling fs layer
+9776b10d5c8c: Pulling fs layer
+52cb9ac3197f: Pulling fs layer
+9776b10d5c8c: Verifying Checksum
+9776b10d5c8c: Download complete
+396c31837116: Verifying Checksum
+396c31837116: Download complete
+52cb9ac3197f: Verifying Checksum
+52cb9ac3197f: Download complete
+396c31837116: Pull complete
+9776b10d5c8c: Pull complete
+52cb9ac3197f: Pull complete
+Digest: sha256:221c0c0d9a90f46f108bb888a1da9e99c82ff631e8b1c63b0223ea951752bd53
+Status: Downloaded newer image for gcr.io/k8s-skaffold/pack:latest
+gcr.io/k8s-skaffold/pack:latest
+nodejs_20251214_RC00: Pulling from serverless-runtimes/google-22-full/builder/nodejs
+63e5bc7682b8: Already exists
+a1965330ab31: Already exists
+533b52b6b165: Already exists
+b4ed84943228: Pulling fs layer
+a40c5f3a1401: Pulling fs layer
+df467854f22c: Pulling fs layer
+6bdcec5f7e2f: Pulling fs layer
+874e912335ec: Pulling fs layer
+93fa74d78a3b: Pulling fs layer
+fe0a88c014e5: Pulling fs layer
+1a82443b3661: Pulling fs layer
+2295f4ff1402: Pulling fs layer
+ad010882700d: Pulling fs layer
+ee3089ba779d: Pulling fs layer
+b42ce85ea40f: Pulling fs layer
+5cfbf2f73d97: Pulling fs layer
+b54a9162a4d0: Pulling fs layer
+b5855e0bc37c: Pulling fs layer
+c242fa69d1f4: Pulling fs layer
+89bd13acb35f: Pulling fs layer
+86db41b8c8f6: Pulling fs layer
+166ae89a5789: Pulling fs layer
+45ad3c750b82: Pulling fs layer
+8100ef436c65: Pulling fs layer
+0d5819accec8: Pulling fs layer
+e4d69cd664f7: Pulling fs layer
+8839bcd39c71: Pulling fs layer
+7d604f31ad4f: Pulling fs layer
+34ce8ba30961: Pulling fs layer
+e6178d2c0976: Pulling fs layer
+4f4fb700ef54: Pulling fs layer
+fe0a88c014e5: Waiting
+1a82443b3661: Waiting
+2295f4ff1402: Waiting
+ad010882700d: Waiting
+ee3089ba779d: Waiting
+b42ce85ea40f: Waiting
+5cfbf2f73d97: Waiting
+b54a9162a4d0: Waiting
+b5855e0bc37c: Waiting
+c242fa69d1f4: Waiting
+89bd13acb35f: Waiting
+86db41b8c8f6: Waiting
+166ae89a5789: Waiting
+45ad3c750b82: Waiting
+8100ef436c65: Waiting
+0d5819accec8: Waiting
+e4d69cd664f7: Waiting
+8839bcd39c71: Waiting
+7d604f31ad4f: Waiting
+34ce8ba30961: Waiting
+e6178d2c0976: Waiting
+4f4fb700ef54: Waiting
+6bdcec5f7e2f: Verifying Checksum
+6bdcec5f7e2f: Download complete
+a40c5f3a1401: Verifying Checksum
+a40c5f3a1401: Download complete
+df467854f22c: Download complete
+b4ed84943228: Verifying Checksum
+b4ed84943228: Download complete
+fe0a88c014e5: Download complete
+93fa74d78a3b: Verifying Checksum
+93fa74d78a3b: Download complete
+874e912335ec: Verifying Checksum
+874e912335ec: Download complete
+2295f4ff1402: Verifying Checksum
+2295f4ff1402: Download complete
+ad010882700d: Verifying Checksum
+ad010882700d: Download complete
+b4ed84943228: Pull complete
+1a82443b3661: Verifying Checksum
+1a82443b3661: Download complete
+ee3089ba779d: Verifying Checksum
+ee3089ba779d: Download complete
+b42ce85ea40f: Verifying Checksum
+b42ce85ea40f: Download complete
+5cfbf2f73d97: Verifying Checksum
+5cfbf2f73d97: Download complete
+b54a9162a4d0: Verifying Checksum
+b54a9162a4d0: Download complete
+a40c5f3a1401: Pull complete
+89bd13acb35f: Verifying Checksum
+89bd13acb35f: Download complete
+b5855e0bc37c: Verifying Checksum
+b5855e0bc37c: Download complete
+c242fa69d1f4: Verifying Checksum
+c242fa69d1f4: Download complete
+86db41b8c8f6: Verifying Checksum
+86db41b8c8f6: Download complete
+45ad3c750b82: Download complete
+166ae89a5789: Verifying Checksum
+166ae89a5789: Download complete
+34ce8ba30961: Verifying Checksum
+34ce8ba30961: Download complete
+7d604f31ad4f: Verifying Checksum
+7d604f31ad4f: Download complete
+0d5819accec8: Verifying Checksum
+0d5819accec8: Download complete
+e4d69cd664f7: Verifying Checksum
+e4d69cd664f7: Download complete
+8100ef436c65: Verifying Checksum
+8100ef436c65: Download complete
+df467854f22c: Pull complete
+4f4fb700ef54: Verifying Checksum
+4f4fb700ef54: Download complete
+8839bcd39c71: Verifying Checksum
+8839bcd39c71: Download complete
+e6178d2c0976: Verifying Checksum
+e6178d2c0976: Download complete
+6bdcec5f7e2f: Pull complete
+874e912335ec: Pull complete
+93fa74d78a3b: Pull complete
+fe0a88c014e5: Pull complete
+1a82443b3661: Pull complete
+2295f4ff1402: Pull complete
+ad010882700d: Pull complete
+ee3089ba779d: Pull complete
+b42ce85ea40f: Pull complete
+5cfbf2f73d97: Pull complete
+b54a9162a4d0: Pull complete
+b5855e0bc37c: Pull complete
+c242fa69d1f4: Pull complete
+89bd13acb35f: Pull complete
+86db41b8c8f6: Pull complete
+166ae89a5789: Pull complete
+45ad3c750b82: Pull complete
+8100ef436c65: Pull complete
+0d5819accec8: Pull complete
+e4d69cd664f7: Pull complete
+8839bcd39c71: Pull complete
+7d604f31ad4f: Pull complete
+34ce8ba30961: Pull complete
+e6178d2c0976: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:7b0dc3fef8f0dfc4180019dbf366c1bfd11cbd9803e9951369a7217301092823
+Status: Downloaded newer image for us-central1-docker.pkg.dev/serverless-runtimes/google-22-full/builder/nodejs:nodejs_20251214_RC00
+public-image-next: Pulling from serverless-runtimes/google-22/run/base
+63e5bc7682b8: Already exists
+8835d663b4b0: Pulling fs layer
+ee0c35f805aa: Pulling fs layer
+8835d663b4b0: Verifying Checksum
+8835d663b4b0: Download complete
+8835d663b4b0: Pull complete
+ee0c35f805aa: Verifying Checksum
+ee0c35f805aa: Download complete
+ee0c35f805aa: Pull complete
+Digest: sha256:0c4b9a1b70edc12c96599b7380fb182515857bb6327eae71f30ea42afeb4e418
+Status: Downloaded newer image for us-central1-docker.pkg.dev/serverless-runtimes/google-22/run/base:public-image-next
+===> ANALYZING
+Image with name "us-central1-docker.pkg.dev/forestagro-12/firebaseapphosting-images/fa12-backend:build-2026-01-05-000" not found
+===> DETECTING
+target distro name/version labels not found, reading /etc/os-release file
+4 of 6 buildpacks participating
+google.nodejs.runtime        1.0.0
+google.nodejs.firebasenextjs 0.0.1
+google.nodejs.npm            1.1.1
+google.nodejs.firebasebundle 0.0.1
+===> RESTORING
+===> BUILDING
+target distro name/version labels not found, reading /etc/os-release file
+=== Node.js - Runtime (google.nodejs.runtime@1.0.0) ===
+2026/01/05 12:58:35 [DEBUG] GET https://dl.google.com/runtimes/ubuntu2204/nodejs/version.json
+Adding image label google.runtime-version: nodejs20
+2026/01/05 12:58:35 [DEBUG] GET https://dl.google.com/runtimes/ubuntu2204/nodejs/version.json
+Installing Node.js v20.19.6.
+2026/01/05 12:58:36 [DEBUG] GET https://dl.google.com/runtimes/ubuntu2204/nodejs/nodejs-20.19.6.tar.gz
+Installing the heapsize.sh exec.d script.
+=== Node.js - Firebasenextjs (google.nodejs.firebasenextjs@0.0.1) ===
+***** CACHE MISS: "npm_modules"
+Installing nextjs adaptor 14.0.21
+=== Node.js - Npm (google.nodejs.npm@1.1.1) ===
+***** CACHE MISS: "npm_modules"
+Installing application dependencies.
+--------------------------------------------------------------------------------
+Running "npm ci --quiet --no-fund --no-audit (NODE_ENV=development)"
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated node-domexception@1.0.0: Use your platform's native DOMException instead
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+added 1129 packages in 42s
+Done "npm ci --quiet --no-fund --no-audit (NODE_ENV=development)" (42.556085058s)
+--------------------------------------------------------------------------------
+Running "npm exec --prefix /layers/google.nodejs.firebasenextjs/npm_modules apphosting-adapter-nextjs-build"
+Overriding Next Config to add configs optmized for Firebase App Hosting
+Successfully created next.config.mjs with Firebase App Hosting overrides
+> project_studio@0.1.0 build
+> next build
+  ▲ Next.js 14.2.35
+   Creating an optimized production build ...
+Failed to compile.
+./app/farmers/plots/[plotId]/page.tsx
+Module not found: Can't resolve '@/app/data/sample-plot'
+https://nextjs.org/docs/messages/module-not-found
+./app/farmers/plots/[plotId]/page.tsx
+Module not found: Can't resolve '@/app/components/Note'
+https://nextjs.org/docs/messages/module-not-found
+> Build failed because of webpack errors
+Restoring original next config in project root
+/layers/google.nodejs.firebasenextjs/npm_modules/node_modules/@apphosting/common/dist/index.js:64
+                reject(new Error(`Build process exited with error code ${code}.`));
+                       ^
+Error: Build process exited with error code 1.
+    at ChildProcess.<anonymous> (/layers/google.nodejs.firebasenextjs/npm_modules/node_modules/@apphosting/common/dist/index.js:64:24)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+Node.js v20.19.6
+Done "npm exec --prefix /layers/google.nodejs.firebasenextjs/npm_m..." (19.345961828s)
+--------------------------------------------------------------------------------
+failed to build: (error ID: a61dd87b):
+{"reason":"Failed Framework Build","code":"fah/failed-framework-build","userFacingMessage":"Your application failed to run the framework build command 'npm exec --prefix /layers/google.nodejs.firebasenextjs/npm_modules apphosting-adapter-nextjs-build' successfully. Please check the raw log to address the error and confirm that your application builds locally before redeploying.","rawLog":"(error ID: d0a693a9):
+Failed to compile.
+./app/farmers/plots/[plotId]/page.tsx
+Module not found: Can't resolve '@/app/data/sample-plot'
+https://nextjs.org/docs/messages/module-not-found
+./app/farmers/plots/[plotId]/page.tsx
+Module not found: Can't resolve '@/app/components/Note'
+https://nextjs.org/docs/messages/module-not-found
+> Build failed because of webpack errors
+/layers/google.nodejs.firebasenextjs/npm_modules/node_modules/@apphosting/common/dist/index.js:64
+                reject(new Error(`Build process exited with error code ${code}.`));
+                       ^
+Error: Build process exited with error code 1.
+    at ChildProcess.<anonymous> (/layers/google.nodejs.firebasenextjs/npm_modules/node_modules/@apphosting/common/dist/index.js:64:24)
+    at ChildProcess.emit (node:events:524:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:293:12)
+Node.js v20.19.6"}
+ERROR: failed to build: exit status 1
+ERROR: failed to build: executing lifecycle: failed with status code: 51
+Finished Step #2 - "pack"
+ERROR
+ERROR: build step 2 "gcr.io/k8s-skaffold/pack" failed: step exited with non-zero status: 1

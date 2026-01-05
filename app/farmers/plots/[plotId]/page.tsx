@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import type { Plot } from '@/app/api/types';
 import { DetailCard, InfoPair, DetailPair, MapDisplay } from '@/app/components/PlotDetailComponents';
-import { samplePlot } from '@/app/data/sample-plot'; // Import sample data
 import Note from '@/app/components/Note'; // Import Note component
 
 const fetcher = (url: string) => fetch(url).then(res => {
@@ -19,27 +18,32 @@ export default function PlotProfilePage() {
     const params = useParams();
     const plotId = params.plotId as string;
 
-    const { data: plotData, error, isLoading } = useSWR<Plot>(plotId ? `/api/plots/${plotId}` : null, fetcher);
-
-    // Use fetched data if available and valid, otherwise fall back to samplePlot
-    const plot = !error && plotData ? plotData : samplePlot;
-    const isSample = error || !plotData;
+    const { data: plot, error, isLoading } = useSWR<Plot>(plotId ? `/api/plots/${plotId}` : null, fetcher);
 
     if (isLoading) {
         return <div className="text-center mt-10">Loading plot details...</div>;
     }
 
-    return (
-        <div className="relative min-h-screen bg-green-50 p-4 sm:p-8">
-            {isSample && (
+    if (error) {
+        return (
+            <div className="relative min-h-screen bg-green-50 p-4 sm:p-8">
                 <div className="mb-6">
                     <Note 
-                        type="warning"
-                        title="This is a Preview Plot"
-                        message="The plot profile is currently being verified. The map and full details will be displayed here once the verification is complete."
+                        type="error"
+                        title="Unable to Load Plot Data"
+                        message="There was an error fetching the plot details. Please try again later."
                     />
                 </div>
-            )}
+            </div>
+        );
+    }
+
+    if (!plot) {
+        return null; // or a 'not found' message
+    }
+
+    return (
+        <div className="relative min-h-screen bg-green-50 p-4 sm:p-8">
             <div className="mb-8 bg-white p-6 rounded-xl shadow-md">
                 <div className="flex justify-between items-start">
                     <div>

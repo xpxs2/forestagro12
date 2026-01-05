@@ -1,0 +1,20 @@
+The forestagro-12 team has performed a complete redesign of their API. The old GET endpoints we were trying to use (/api/staff/farmers, etc.) are completely deprecated and have been replaced by a single, new endpoint: POST /api/external/staff.
+
+Our script was failing because it was trying to communicate with an API that no longer exists.
+
+I am ready to rewrite the dataSync.ts script immediately to use this new, correct method. However, I have identified a new, critical requirement in the v2.0 API guide that we must address first.
+
+The new API requires a staffUser object ({ id, country }) to be sent in the body of every request. This is used to filter data based on the country of the user making the request.
+
+This presents a problem for our automated sync script, which runs as a system process and has no concept of a "logged-in user."
+
+To proceed, I need you to provide a "system" or "administrator" staff user object that has the necessary permissions to access all the data we need to sync.
+
+Specifically, I need the ID and Country for an administrative user account. For example: { "id": "AV20-system-admin-001", "country": "Global" }.
+
+Once you provide this staffUser object, I will perform the final rewrite of the dataSync.ts script. It will then be able to:
+
+Send a POST request to the correct new endpoint.
+Include the required staffUser object for authentication.
+Use the action-based method ("get_farmers", "get_rangers") to fetch the data.
+I am awaiting your input for the administrative staffUser object.

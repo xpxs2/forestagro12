@@ -1,8 +1,9 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense } from 'react';
 import Link from 'next/link';
+import useSWR from 'swr';
 import {
     PlusIcon, WrenchScrewdriverIcon, TrophyIcon, SparklesIcon,
     BuildingStorefrontIcon, DocumentChartBarIcon, UserCircleIcon, NewspaperIcon, FireIcon,
@@ -187,45 +188,15 @@ const AddNewPlotPanel = ({ userId }: { userId?: string }) => {
     );
 };
 
+const fetcher = (url: string) => fetch(url).then(res => res.json());
 
 // --- Main Dashboard Page ---
 function FarmerDashboard() {
     const { user, error: userError } = useUser();
     const { auth } = useFirebase();
     const router = useRouter();
-    const [plots, setPlots] = useState<PlotDashboardData[]>([]);
-    const [plotsLoading, setPlotsLoading] = useState(true);
-    const [plotsError, setPlotsError] = useState<string | null>(null);
 
-    useEffect(() => {
-        if (user) {
-            const fetchPlots = async () => {
-                setPlotsLoading(true);
-                try {
-                    const response = await fetch(`/api/users/${user.id}/plots`);
-                    if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
-                    const userPlots: Plot[] = await response.json();
-
-                    if (userPlots.length === 0) {
-                        const samplePlot: PlotDashboardData = {
-                            id: "plot-sample-01", nickname: "Unnamed Plot", isSample: true,
-                            area: 5.2, province: "Sample Province", village: "Sample Village", gpsCoordinates: "14.123, 121.567", uniquePlotId: "plot-sample-01",
-                            slope: "Gentle (3-8%)", elevation: 1450, soilType: "Clay Loam", waterSource: "Rain-fed", primaryCrop: "Coffee",
-                            totalPracticesLogged: 3, lastPracticeDate: "2024-05-10", composting: 'Active', tillage: 'No-Till', irrigation: 'Drip', lastFertilizer: "2024-04-20"
-                        };
-                        setPlots([samplePlot]);
-                    } else {
-                        setPlots(userPlots.map(transformPlotToDashboardData));
-                    }
-                } catch (e) {
-                    setPlotsError(`Could not load farm data: ${e instanceof Error ? e.message : String(e)}`);
-                } finally {
-                    setPlotsLoading(false);
-                }
-            };
-            fetchPlots();
-        }
-    }, [user]);
+    const { data: plots, error: plotsError } = useSWR<Plot[]>(user ? `/api/users/${user.id}/plots` : null, fetcher);
 
     const handleSignOut = async () => {
         if (!auth) return;
@@ -237,20 +208,20 @@ function FarmerDashboard() {
         }
     };
 
-    if (plotsLoading) {
+    if (!plots && !plotsError) {
         return <div className="text-center p-10 bg-white-smoke min-h-screen text-hunter-green">Loading Your Farm Dashboard...</div>;
     }
 
     if (userError || plotsError) {
-        return <div className="text-center p-10 text-red-600 bg-white-smoke min-h-screen">Error: {userError || plotsError}</div>;
+        return <div className="text-center p-10 text-red-600 bg-white-smoke min-h-screen">Error: {userError || plotsError.message}</div>;
     }
     
     if (!user) return null;
 
     const plotPanels = Array(2).fill(null).map((_, index) => {
-        if (plots[index]) {
+        if (plots && plots[index]) {
             const plot = plots[index];
-            return <PlotDashboard key={plot.id} plot={plot} isSample={plot.isSample} userId={user.id} />;
+            return <PlotDashboard key={plot.id} plot={transformPlotToDashboardData(plot)} isSample={plot.isSample} userId={user.id} />;
         }
         return <AddNewPlotPanel key={`add-plot-${index}`} userId={user.id} />;
     });

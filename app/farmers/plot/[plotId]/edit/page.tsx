@@ -31,19 +31,17 @@ function PlotEditForm({ userId }: { userId: string }) {
         }
 
         const plotData = { ...data, farmerId: userId };
+        const token = await auth.currentUser.getIdToken();
 
-        try {
-            const token = await auth.currentUser.getIdToken();
-            const savedPlot = await savePlot(plotData, token);
-            alert(`Plot "${savedPlot.name}" saved successfully!`);
-            mutate();
-            router.push(`/farmers/dashboard?userId=${userId}`);
-            router.refresh();
-        } catch (error) {
-            const errorMessage = error instanceof Error ? error.message : 'An unknown error occurred.';
-            console.error('Save failed:', error);
-            alert(`Failed to save plot: ${errorMessage}`);
-        }
+        // Optimistic UI update
+        mutate(savePlot(plotData, token), {
+          optimisticData: plotData,
+          rollbackOnError: true,
+          populateCache: true,
+          revalidate: false,
+        });
+
+        router.push(`/farmers/dashboard?userId=${userId}`);
     };
 
     if (!isNew && fetchError) return <div className="text-center p-8 text-red-500">Error: Could not load plot data.</div>;

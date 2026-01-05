@@ -4,8 +4,8 @@
 import { useState, useEffect } from 'react';
 import { doc, getDoc, collection, addDoc, getDocs, query, updateDoc } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
-import { useFirebase } from '@/lib/FirebaseProvider';
-import { useAuth } from '@/lib/use-auth'; // CORRECTED: Using alias
+import { useFirebase } from '../../../lib/FirebaseProvider';
+import { useAuth } from '../../../lib/use-auth';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 

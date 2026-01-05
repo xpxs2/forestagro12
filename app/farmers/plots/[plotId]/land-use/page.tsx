@@ -3,6 +3,7 @@
 
 import { useParams } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 import { PlusCircleIcon } from '@heroicons/react/24/solid';
 
 // --- MOCK DATA & TYPES ---
@@ -97,6 +98,14 @@ export default function LandUsePage() {
                 <p className="text-lg text-green-700 font-semibold">Plot ID: {plotId}</p>
                 <h1 className="text-4xl font-bold text-gray-800">Land Use &amp; Products</h1>
                 <p className="mt-2 text-gray-600">A simple inventory of your farm&apos;s assets. This helps connect you to market opportunities.</p>
+                 <div className="flex justify-end mb-4">
+                    <Link
+                        href={`/farmers/dashboard`}
+                        className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105"
+                    >
+                        Back to Dashboard
+                    </Link>
+                 </div>
             </div>
 
             {/* Main Content */}

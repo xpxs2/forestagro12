@@ -107,6 +107,9 @@ function CropEditForm({ plotId, userId, cropId }: { plotId: string, userId: stri
                 <button type="submit" disabled={isSubmitting} className="bg-accent hover:bg-lightAccent text-textDark font-bold py-2 px-8 rounded-md shadow-lg disabled:bg-gray-500">
                     {isSubmitting ? 'Saving...' : (isNew ? 'Add Crop' : 'Update Crop')}
                 </button>
+                <button onClick={() => router.push('/farmers/dashboard')} className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+                    Back to Dashboard
+                </button>
             </div>
         </form>
     );

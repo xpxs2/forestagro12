@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import DetailPageLayout from '@/app/components/DetailPageLayout';
 import { mrvItems } from '@/app/data/mrv';
 
@@ -9,6 +10,14 @@ export default function MRVPage() {
 
     return (
         <DetailPageLayout title="MRV Hub">
+            <div className="flex justify-end mb-4">
+                <Link
+                    href={`/farmers/dashboard`}
+                    className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105"
+                >
+                    Back to Dashboard
+                </Link>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div className="md:col-span-1">
                     <div className="bg-secondary p-4 rounded-lg shadow">

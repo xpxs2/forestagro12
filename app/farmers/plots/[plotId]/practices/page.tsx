@@ -3,6 +3,7 @@
 
 import { useParams, useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import Link from 'next/link';
 import { CheckBadgeIcon } from '@heroicons/react/24/solid';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import { useFirebase } from '@/lib/FirebaseProvider';
@@ -120,7 +121,13 @@ export default function PlotPracticesPage() {
                     </div>
 
                     {/* Right Box: Button */}
-                    <div className="w-1/3 flex-shrink-0">
+                     <div className="w-1/3 flex-shrink-0">
+                        <Link
+                            href={`/farmers/dashboard`}
+                            className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition-transform transform hover:scale-105"
+                        >
+                            Back to Dashboard
+                        </Link>
                         <RequestSAAReviewButton />
                     </div>
                 </div>

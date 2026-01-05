@@ -87,6 +87,9 @@ function PlotEditForm({ userId }: { userId: string }) {
                 <button type="submit" disabled={isSubmitting} className="bg-accent hover:bg-lightAccent text-textDark font-bold py-2 px-8 rounded-md shadow-lg disabled:bg-gray-500">
                     {isSubmitting ? 'Saving...' : 'Save Changes'}
                 </button>
+                <button onClick={() => router.push('/farmers/dashboard')} className="bg-blue-500 text-white font-bold py-2 px-6 rounded-lg hover:bg-blue-600 transition-colors">
+                    Back to Dashboard
+                </button>
             </div>
         </form>
     );

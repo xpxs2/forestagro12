@@ -5,7 +5,10 @@ import * as admin from 'firebase-admin';
 // Initialize the app using Application Default Credentials
 if (!admin.apps.length) {
   try {
-    admin.initializeApp();
+    admin.initializeApp({
+      credential: admin.credential.applicationDefault(),
+      projectId: 'forestagro-12',
+    });
   } catch (error) {
     console.error('Firebase Admin SDK initialization failed:', error);
   }
